@@ -1,62 +1,65 @@
+# NEST: Predicting Recruitment Rate in Clinical Trials
 
+## Overview
+This project addresses the problem of predicting the Study Recruitment Rate (RR) for clinical trials, a critical aspect of the drug development process. By implementing a structured approach leveraging advanced machine learning techniques and large language models, this solution provides actionable insights to optimize clinical trial recruitment strategies.
 
-# Predicting Recruitment Rates in Clinical Trials
+## Key Highlights
+- *Objective*: Predict Recruitment Rate (RR) using structured and textual data.
+- *Tools and Frameworks*:
+  - *Transformers*: Used BioBERT for extracting semantic embeddings from textual data.
+  - *PyTorch*: For GPU-accelerated computations.
+  - *Scikit-learn*: For Gradient Boosting Model (GBM) training and evaluation.
+  - *Bayesian Optimization*: Hyperparameter tuning using bayes_opt.
+  - *Google Colab*: For GPU-enabled computation.
+  - *Matplotlib & Seaborn*: Data visualization.
+  - *Pandas & NumPy*: Data preprocessing and numerical computations.
 
-### Overview
-This project aims to predict the **Study Recruitment Rate (RR)** for clinical trials, a critical metric in the drug development process. By leveraging advanced machine learning models and domain-specific language representations, the solution enhances the prediction process, enabling efficient clinical trial planning and management.
+## Methodology
+1. *Data Preprocessing*:
+   - Handled missing values and irrelevant columns.
+   - Transformed categorical features to numerical representations (e.g., one-hot encoding).
+   - Extracted embeddings for textual features using BioBERT.
+   - Standardized numerical columns for uniform scaling.
 
----
+2. *Model Training*:
+   - Utilized GBM for robust regression, optimized using Bayesian techniques.
+   - Compared results with LightGBM as a benchmark.
+   - Applied stratified train-test splitting to maintain data consistency.
 
-### Methodology
-1. **Data Preprocessing**:
-   - Cleaned textual columns for alphanumeric values.
-   - Transformed categorical features using one-hot encoding.
-   - Standardized numerical columns with `StandardScaler`.
-   - Handled missing values through selective imputation or feature elimination.
+3. *Evaluation Metrics*:
+   - *Root Mean Square Error (RMSE)*: 0.34
+   - *Mean Absolute Error (MAE)*: 0.083
+   - *R² Score*: 0.45
+   - Utilized SHAP for model explainability and feature importance analysis.
 
-2. **Feature Engineering**:
-   - Integrated numerical features with textual embeddings extracted via **BioBERT**.
-   - Modeled temporal features such as trial duration and completion dates.
+## Results
+- *Key Features*:
+  - Duration of trial, enrollment, and primary completion time were identified as critical predictors.
+- *Insights*:
+  - Low RMSE and MAE indicate high accuracy and consistency.
+  - Explainable AI techniques like SHAP enhance trust in model predictions.
 
-3. **Modeling**:
-   - Implemented a **Gradient Boosting Regressor (GBM)** for prediction.
-   - Fine-tuned hyperparameters using **Bayesian Optimization**.
-   - Benchmarked results with alternative models like **LightGBM**.
+## Challenges
+- *Hardware Limitations*: Limited access to high-performance GPUs restricted experimentation with advanced models like GPT-4.
+- *Data Imbalance*: Skewed recruitment rates posed challenges in maintaining generalizability.
 
-4. **Evaluation Metrics**:
-   - Root Mean Square Error (RMSE): 0.34
-   - Mean Absolute Error (MAE): 0.083
-   - R² Score: 0.45
+## Next Steps
+- Explore dynamic feature selection using reinforcement learning.
+- Fine-tune larger LLMs like LLaMA-3.3 for improved embeddings.
+- Implement continuous learning frameworks for model updates with new data.
+- Address temporal dynamics using advanced time-series models.
 
----
+## Acknowledgments
+The project utilized insights from academic papers and was powered by an NVIDIA A100 GPU through OLA Krutrim.
 
-### Tools & Technologies
-- **Transformers (BioBERT)**: For semantic embeddings from biomedical text.
-- **PyTorch**: GPU-accelerated computation for embeddings.
-- **Scikit-learn**: Model training and evaluation.
-- **bayes_opt**: Bayesian hyperparameter optimization.
-- **Matplotlib & Seaborn**: Data visualization.
-- **Google Colab**: GPU-enabled computation.
-- **Pandas & NumPy**: Data handling and numerical computation.
+## Team Members
+- *Satyam Kumar*
+- *Ayush Shaurya Jha*
+- *Raunak Raj*
+- *Dhruv Bansal*
+- *Kritnandan*
+- *Ankita Kumari*
 
----
-
-### Key Outcomes
-- High precision in predicting recruitment rates with low RMSE and MAE.
-- Explainability enhanced via SHAP for feature importance analysis.
-- Insights into critical factors like trial duration, enrollment numbers, and outcomes.
-
----
-
-### Challenges & Future Work
-- **GPU Limitations**: High-performance GPUs like NVIDIA A100 were utilized, but constraints limited the use of larger models such as GPT-4.
-- **Feature Enhancements**: Integration of external datasets for location and sponsor-specific insights.
-- **Advanced Temporal Modeling**: Exploring techniques like Temporal Fusion Transformers to improve temporal trend predictions.
-
----
-
-### Implications
-This project provides actionable insights for clinical trial managers to optimize recruitment campaigns and resource allocation, ensuring timely completion and minimizing risks.
-
-**Team Members**: Satyam Kumar, Ayush Shaurya Jha, Raunak Raj, Dhruv Bansal, Kritnandan, Ankita Kumari  
-
+## References
+- [BioBERT Research Paper](https://academic.oup.com/bioinformatics/article/36/4/1234/5566506)
+- [Recruitment Rate Insights](https://trialhub.com/resources/articles/clinical-trial-recruitment-rate-4-things-to-know)
